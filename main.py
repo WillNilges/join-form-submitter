@@ -11,16 +11,6 @@ import logging
 logging.basicConfig(level=logging.INFO)
 
 api = "https://docs.google.com/forms/d/1w1d2qiCerKxjR5uu7gnqRqF9XpYeRvTDPqHbCE4Cftc/formResponse"
-chom = {
-    "entry.508902369": "Nombre",  # Name
-    "entry.119277156": "test@test.com",  # Email
-    "entry.1046234029": "555-555-5555",  # Phone
-    "entry.214227195": "151+Broome+St,+Manhattan,+New+York+10002",  # Address
-    "entry.290479075": "apartamento",  # Apartment
-    "entry.1698570874": "referencia",  # Reference
-    "entry.1263551439": "I+agree+to+the+Network+Commons+License",  # NCL
-    "entry.508430148": "hunter2",  # Password
-}
 
 NAME = "entry.508902369"
 EMAIL = "entry.119277156"
@@ -78,12 +68,12 @@ def use_splinter(member: Member, for_real: bool = False):
         b.visit("https://www.nycmesh.net/es/join")
 
         form_submission = {
-            "entry.508902369": member.name,
-            "entry.119277156": member.email,
-            "entry.1046234029": member.phone,
-            "entry.214227195": member.address,
-            "entry.290479075": member.apartment,
-            "entry.1698570874": "BAM Data Dump",
+            NAME: member.name,
+            EMAIL: member.email,
+            PHONE: member.phone,
+            ADDRESS: member.address,
+            APARTMENT: member.apartment,
+            REFERENCE: "BAM Data Dump",
             # "entry.1263551439": "I+agree+to+the+Network+Commons+License", # NCL
             # "entry.508430148": "hunter2", # Password
         }
@@ -107,14 +97,14 @@ def use_api(member: Member):
     # On the form, the keys here are the names of the field, and I guess
     # they correspond to the expected google forms lads.
     form_submission = {
-        "entry.508902369": member.name,
-        "entry.119277156": member.email,
-        "entry.1046234029": member.phone,
-        "entry.214227195": member.address,
-        "entry.290479075": member.apartment,
-        "entry.1698570874": "BAM Data Dump",
-        "entry.1263551439": "I+agree+to+the+Network+Commons+License",  # NCL
-        "entry.508430148": "hunter2",  # Password
+        NAME: member.name,
+        EMAIL: member.email,
+        PHONE: member.phone,
+        ADDRESS: member.address,
+        APARTMENT: member.apartment,
+        REFERENCE: "BAM Data Dump",
+        NCL: "I+agree+to+the+Network+Commons+License",  # NCL
+        PASSWORD: "hunter2",  # Password
     }
     try:
         print(form_submission)
