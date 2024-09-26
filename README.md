@@ -17,6 +17,11 @@ Contact Willard for help
 ```
 
 # Usage
+
+Requires firefox.
+
 ```
+sudo pacman -S geckodriver # Maybe not required, try without first
+pip install -r requirements.txt
 python main.py --splinter --file requests.csv
 ```
