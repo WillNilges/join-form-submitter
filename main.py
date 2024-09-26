@@ -33,9 +33,9 @@ class Member:
 
 def main():
     parser = argparse.ArgumentParser(
-        prog="ProgramName",
-        description="What the program does",
-        epilog="Text at the bottom of help",
+        prog="join-form-submitter",
+        description="Submits the join form at https://www.nycmesh.net/es/join",
+        epilog="Contact Willard for help",
     )
 
     parser.add_argument("--real", action="store_true")
@@ -86,7 +86,7 @@ def use_splinter(member: Member, for_real: bool = False):
         if for_real:
             b.find_by_value("Enviar peticion").click()  # Send it
 
-        time.sleep(3)
+        time.sleep(1)
 
         print(f"Submitted via splinter. Member: {member}")
     except Exception as e:
